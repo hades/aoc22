@@ -8,3 +8,18 @@ export async function readAllLines(input: NodeJS.ReadableStream): Promise<string
     }
     return result;
 }
+
+export async function feedLinesToGenerator<R>(
+        generator: Generator<undefined, R, string | null>,
+        input: NodeJS.ReadableStream): Promise<R> {
+    const iface = createInterface(input);
+    generator.next();
+    for await (const line of iface) {
+        generator.next(line);
+    }
+    const result = generator.next(null).value;
+    if (result === undefined) {
+        throw new Error('generator did not return a result');
+    }
+    return result;
+}
