@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "typescript": "^4.9.3"
+    "typescript": "^4.9.4"
   },
   "name": "aoc22",
   "version": "1.0.0",
@@ -12,6 +12,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@types/node": "^18.11.10"
+    "@types/node": "^18.11.10",
+    "interval-operations": "^1.0.7"
   }
 }

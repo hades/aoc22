@@ -102,6 +102,8 @@ export async function parseMatrix(
 
 export type Coords = { x: number; y: number };
 
+export type Point = [number, number];
+
 export class ObjectSet<T> {
   private set: Set<string> = new Set();
 
@@ -125,3 +127,9 @@ export class CoordsSet extends ObjectSet<Coords> {
     super((coords) => `${coords.x},${coords.y}`);
   }
 } 
+
+export class PointSet extends ObjectSet<Point> {
+    constructor() {
+        super((point) => `${point[0]},${point[1]}`);
+    }
+}
