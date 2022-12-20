@@ -102,6 +102,8 @@ export async function parseMatrix(
 
 export type Coords = { x: number; y: number };
 
+export type Coords3 = { x: number; y: number; z: number };
+
 export type Point = [number, number];
 
 export class ObjectSet<T> {
@@ -113,8 +115,18 @@ export class ObjectSet<T> {
     this.set.add(this.keyFunc(obj));
   }
 
+  addAll(objs: T[]) {
+    for (const obj of objs) {
+      this.add(obj);
+    }
+  }
+
   has(obj: T) {
     return this.set.has(this.keyFunc(obj));
+  }
+
+  intersection(other: T[]) {
+    return other.filter((obj) => this.has(obj));
   }
 
   get size() {
@@ -127,6 +139,12 @@ export class CoordsSet extends ObjectSet<Coords> {
     super((coords) => `${coords.x},${coords.y}`);
   }
 } 
+
+export class Coords3Set extends ObjectSet<Coords3> {
+  constructor() {
+    super((coords) => `${coords.x},${coords.y},${coords.z}`);
+  }
+}
 
 export class PointSet extends ObjectSet<Point> {
     constructor() {

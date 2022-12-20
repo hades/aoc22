@@ -15,6 +15,11 @@ import { dec12 } from './dec12';
 import { dec13 } from './dec13';
 import { dec14 } from './dec14';
 import { dec15 } from './dec15';
+import { dec16 } from './dec16';
+import { dec17 } from './dec17';
+import { dec18 } from './dec18';
+import { dec19 } from './dec19';
+import { dec20 } from './dec20';
 import { ProblemOutput } from './types';
 
 const { values } = parseArgs({
@@ -48,6 +53,11 @@ const funcs: {[day: string]: (input: NodeJS.ReadableStream) => Promise<ProblemOu
     '13': dec13,
     '14': dec14,
     '15': dec15,
+    '16': dec16,
+    '17': dec17,
+    '18': dec18,
+    '19': dec19,
+    '20': dec20,
 }
 
 if (values.day && funcs[values.day]) {
