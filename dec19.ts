@@ -240,9 +240,9 @@ export async function dec19(input: NodeJS.ReadableStream): Promise<ProblemOutput
         const quality = blueprint.id * model.valueMIP;
         return quality;
     };
-    //const results = blueprints.map(solve);
+    const results = blueprints.map(solve);
     let totalQuality = 0;
-    for (const result of []) {
+    for (const result of results) {
         totalQuality += result;
     }
     const solveStar2: (b: Blueprint) => number = (blueprint: Blueprint) => {
